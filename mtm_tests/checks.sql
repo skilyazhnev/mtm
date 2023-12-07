@@ -25,7 +25,7 @@ num AS (
 ) 
 select 
   *, 
-  CASE WHEN main = target then 'Ok' ELSE 'False' END as check1 
+  CASE WHEN main = target then 'Ok' ELSE 'False' END as check
 from 
   (
     select 
@@ -41,7 +41,7 @@ from
 \echo 'Checking data with NULL:'
 
 SELECT 
-  CASE WHEN max(val) || ' -> ' || min(val) = max_to_min(val) THEN 'Ok' ELSE 'False' END as check1 
+  CASE WHEN max(val) || ' -> ' || min(val) = max_to_min(val) THEN 'Ok' ELSE 'False' END as check 
 FROM 
   (
     VALUES 

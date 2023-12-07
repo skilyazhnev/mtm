@@ -1,6 +1,5 @@
 \echo Use "CREATE EXTENSION mtm" to load this file. \quit 
 
-
 CREATE TYPE state_mtm AS (
     min numeric,
     max numeric,

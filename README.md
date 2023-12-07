@@ -2,17 +2,22 @@
 
 Aggregate function that generates a custom-formatted text for a given numerical column, displaying the minimum and maximum values of that column.
 
+## Limitation
+
+-  Only number types
+-  Order of min and max values fixed
+
 ## Installation
 
 In target server 
 ```bash
-git clone 
-cd ./mtm
-make install
+$ git clone https://github.com/skilyazhnev/mtm.git
+$ cd ./mtm
+$ make install
 ```
 In target database run
 ```sql
-create extension mtm version "0.1" ;
+target_db=# create extension mtm version "0.1" ;
 ```
 
 ## Configuration
@@ -20,7 +25,7 @@ create extension mtm version "0.1" ;
 Parameters can be configured in `postgresql.conf` or in session  
 
 - `mtm.output_format`: Output format based in `FORMAT()` [(Doc)](https://www.postgresql.org/docs/current/functions-string.html#FUNCTIONS-STRING-FORMAT) <br>
-**important**: I didn't add the ability to change the order of maximum and minimum because this would begin to contradict the name of the function
+**important**: I didn't add the ability to change the order of maximum and minimum because this would begin to contradict the name of the function <br>
 
 ## Examples
 
@@ -64,8 +69,13 @@ SELECT max_to_min(val), text FROM t GROUP BY text;
 ```
 
 
+## Tests
 
+Check basic input\output parameters of function
+```bash
+$ psql -d <target_db> -f ./mtm_tests/checks.sql
+```
 
 ## Notes
 
-Как вариант можно было бы использовать Polymorphic Types, но я ограничился на решении с числами.
+- Alternatively, it was possible to use polymorphic types, but I limited myself to a solution with numbers.
