@@ -12,7 +12,7 @@ Aggregate function that generates a custom-formatted text for a given numerical 
 In target server 
 ```bash
 $ git clone https://github.com/skilyazhnev/mtm.git
-$ cd ./mtm
+$ cd ./mtm/mtm
 $ make install
 ```
 In target database run
@@ -24,7 +24,7 @@ target_db=# create extension mtm version "0.1" ;
 
 Parameters can be configured in `postgresql.conf` or in session  
 
-- `mtm.output_format`: Output format based in `FORMAT()` [(Doc)](https://www.postgresql.org/docs/current/functions-string.html#FUNCTIONS-STRING-FORMAT) <br>
+- `mtm.output_format`: Output format based on `FORMAT()` [(Doc)](https://www.postgresql.org/docs/current/functions-string.html#FUNCTIONS-STRING-FORMAT) <br>
 **important**: I didn't add the ability to change the order of maximum and minimum because this would begin to contradict the name of the function <br>
 
 ## Examples
@@ -38,7 +38,7 @@ max_to_min
 -----------
  10 -> 3
 ```
-
+Change output format in session
 ```sql
 -- Change output format in session
 set mtm.output_format='%s -> %s';
