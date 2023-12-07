@@ -1,0 +1,4 @@
+default_version='0.1'
+relocatable = true
+encoding = UTF8
+comment = 'aggregate to find min and max'
