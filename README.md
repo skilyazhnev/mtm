@@ -79,3 +79,5 @@ $ psql -d <target_db> -f ./mtm_tests/checks.sql
 ## Notes
 
 - Alternatively, it was possible to use polymorphic types, but I limited myself to a solution with numbers.
+- Tested on:
+  - PG15 
